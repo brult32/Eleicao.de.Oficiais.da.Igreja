@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>youtube.com/EuEMinhaCasaOficial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+</head>
+
+<body>
+    <div class="main">
+        <div id="setupVote" class="cont">
+            <div class="divBox">
+                <div class="divLogo">
+                    <img class="logo" src="fishicon.jpg">
+                </div>
+            </div>
+            <div class="divBox col50">
+                <span class="pquote">Escolham homens sábios, criteriosos e experientes de cada uma de suas tribos, e eu os colocarei como chefes de vocês.</span>
+                <br>
+                <span class="pright">Deuteronômio 1:13</span>
+            </div>
+            <br>
+            <div class="divBox col50"> <!-- style="width: 90%" -->
+                <span>Título da eleição (opcional):</span><br>
+                <input type="text" class="col80" id="setuptitle" placeholder="título" > <!-- style="width: 80%" -->
+            </div>
+            <br>
+            <div class="divBox">
+                <span>Total de membros da Igreja:</span><br>
+                <button class="btn pm" onclick="changeTotalMembers(-10)">-10</button>
+                <button class="btn pm" onclick="changeTotalMembers(-1)">-1</button>
+                <span id="totMem" class="LRborder">50</span>
+                <button class="btn pm" onclick="changeTotalMembers(1)">+1</button>
+                <button class="btn pm" onclick="changeTotalMembers(10)">+10</button>
+            </div>
+            <div class="divBox">
+                <span>Membros presentes votantes:</span><br>
+                <button class="btn pm" onclick="changeVotingMembers(-10)">-10</button>
+                <button class="btn pm" onclick="changeVotingMembers(-1)">-1</button>
+                <span id="votMem" class="LRborder">50</span>
+                <button class="btn pm" onclick="changeVotingMembers(1)">+1</button>
+                <button class="btn pm" onclick="changeVotingMembers(10)">+10</button>
+            </div>
+            <div class="divBox">
+                <span>Votos por membro:</span><br>
+                <button class="btn pm" onclick="changeMaxVotes(-1)">-1</button>
+                <span id="maxVot" class="LRborder">1</span>
+                <button class="btn pm" onclick="changeMaxVotes(1)">+1</button>
+            </div>
+            <br>
+            <div class="divBox">
+                <span>Canditatos:</span><br>
+                <input type="text" id="ca0" placeholder="canditado" onchange="changeName(0, this.value)">
+                <input type="text" id="ca1" placeholder="canditado" onchange="changeName(1, this.value)">
+                <input type="text" id="ca2" placeholder="canditado" onchange="changeName(2, this.value)">
+                <br>
+                <input type="text" id="ca3" placeholder="canditado" onchange="changeName(3, this.value)">
+                <input type="text" id="ca4" placeholder="canditado" onchange="changeName(4, this.value)">
+                <input type="text" id="ca5" placeholder="canditado" onchange="changeName(5, this.value)">
+            </div>
+            <br>
+            <div class="divBox col50">
+                <span class="pquote">Pois pela graça que me foi dada digo a todos vocês: ninguém tenha de si mesmo um conceito mais elevado do que deve ter; mas, pelo contrário, tenha um conceito equilibrado, de acordo com a medida da fé que Deus lhe concedeu.</span>
+                <br>
+                <span class="pright">Romanos 12:3</span>
+            </div>
+            <div class="divBox">
+                <div class="divLogo">
+                    <img class="logo" src="fishicon.jpg">
+                </div>
+            </div>
+            <br>
+            <div class="col80 divBox">
+                <button class="btn btnVote" onclick="startVoting()" id="btnStart">Iniciar</button> <!-- style="width: 50%" -->
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <span class="blt">Desenvolvido por <a href="mailto:brult32@gmail.com">Brult32</a> para ser usado livremente em qualquer igreja cristã.</span>
+        </div>
+        <div id="mainVote" class="cont" hidden><!-- hidden -->
+            <div id="tit" class="title divName">
+                <span id="title">Eleição de oficiais da Igreja</span>
+                <br>
+            </div>
+            <div id="n0" class="rows divName">
+                <div class="col col1"><button id="btn0" class="btnName" onclick="changeState(0)"></button></div>
+                <div class="col col2"><span id="vt0" class="lbStandard lbVotes">0</span></div>
+                <div class="col col3"><div class="pbar pbarStandard"><span class="pbarfill pbarfillStandard" id="pro0"></span></div></div>
+                <br>
+            </div>
+            <div id="n1" class="rows divName">
+                <div class="col col1"><button id="btn1" class="btnName" onclick="changeState(1)"></button></div>
+                <div class="col col2"><span id="vt1" class="lbStandard lbVotes">0</span></div>
+                <div class="col col3"><div class="pbar pbarStandard"><span class="pbarfill pbarfillStandard" id="pro1"></span></div></div>
+                <br>
+            </div>
+            <div id="n2" class="rows divName">
+                <div class="col col1"><button id="btn2" class="btnName" onclick="changeState(2)"></button></div>
+                <div class="col col2"><span id="vt2" class="lbStandard lbVotes">0</span></div>
+                <div class="col col3"><div class="pbar pbarStandard"><span class="pbarfill pbarfillStandard" id="pro2"></span></div></div>
+                <br>
+            </div>
+            <div id="n3" class="rows divName">
+                <div class="col col1"><button id="btn3" class="btnName" onclick="changeState(3)"></button></div>
+                <div class="col col2"><span id="vt3" class="lbStandard lbVotes">0</span></div>
+                <div class="col col3"><div class="pbar pbarStandard"><span class="pbarfill pbarfillStandard" id="pro3"></span></div></div>
+                <br>
+            </div>
+            <div id="n4" class="rows divName">
+                <div class="col col1"><button id="btn4" class="btnName" onclick="changeState(4)"></button></div>
+                <div class="col col2"><span id="vt4" class="lbStandard lbVotes">0</span></div>
+                <div class="col col3"><div class="pbar pbarStandard"><span class="pbarfill pbarfillStandard" id="pro4"></span></div></div>
+                <br>
+            </div>
+            <div id="n5" class="rows divName">
+                <div class="col col1"><button id="btn5" class="btnName" onclick="changeState(5)"></button></div>
+                <div class="col col2"><span id="vt5" class="lbStandard lbVotes">0</span></div>
+                <div class="col col3"><div class="pbar pbarStandard"><span class="pbarfill pbarfillStandard" id="pro5"></span></div></div>
+                <br>
+            </div>
+            <div class="rows divName">
+                <div class="col col1"><span class="lbStandard lbWhite">Votos brancos / nulos:</span></div>
+                <div class="col col2"><span id="lbWhites" class="lbStandard lbVotes">0</span></div>
+                <div class="col col3"><span id="lblTempWhites" class="lbStandard lbVotes">0</span></div>
+                <br>
+            </div>
+            <div class="rows divName">
+                <div class="col col1"><span class="lbStandard lbWhite">Total de votos apurados:</span></div>
+                <div class="col col2"><span id="lbTotalCount" class="lbStandard lbVotes">0</span></div>
+                <div class="col col3">
+                    <div class="pbar pbarStandard">
+                        <span class="lbStandard lbCount" id="proContText"></span> <!-- lbWhite -->
+                        <span class="pbarfill1 pbarfillStandard" id="proCont"></span>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="rows divName">
+                <div class="pbar1 pbarStandard">
+                    <span class="lbStandard lbCount" id="lbProF"></span>
+                    <span class="pbarfill1 pbarfillStandard" id="proFull"></span>
+                </div>
+            </div>
+            <div class="divName" id="votebtns">
+                <div id="checkWhite" hidden>
+                    <span>Confirmar voto nulo ou em branco?</span>
+                    <button id="checkY" class="btn pm" onclick="checkConfirm(true)">Sim</button>
+                    <button id="checkN" class="btn pm" onclick="checkConfirm(false)">Não</button>
+                </div>
+                <div id="bVote">
+                    <button id="btnVote" class="btn btnVote" onclick="countVotes()">Próxima cédula (as cédulas nulas ou em branco devem ser contabilizadas)</button>
+                </div>
+            </div>
+            <div class="prend" id="endd" hidden>
+                <div class="divBox">
+                    <span class="pquote">Tampouco vocês devem ser chamados "chefes", porquanto vocês têm um só Chefe, o Cristo. O maior
+                        entre vocês deverá ser servo.</span><br>
+                    <span class="pright">Mateus 23:10-11</span><br>
+                </div>
+                <div class="divBox">
+                    <span class="pquote">De fato, Deus dispôs cada um dos membros no corpo, segundo a sua vontade.</span><br>
+                    <span class="pright">1 Coríntios 12:18</span><br>
+                </div>
+            </div>
+            <br>
+            <div class="divBox">
+                <div class="divLogo">
+                    <img class="logo" src="fishicon.jpg">
+                </div>
+            </div>
+            <br>
+            <div class="col80 divBox">
+                <button id="btnFullScreen" class="btn btnVote" onclick="openFullscreen()">Tela cheia</button>
+                <br>
+                <br>
+            </div>
+            <br>
+            <div class="divBox">
+                <p>Se a tela estiver muito grande ou muito pequena ajuste o zoom do navegador com os atalhos:</p>
+                <p>"Ctrl" + "-" para diminuir o zoom</p>
+                <p>"Ctrl" + "+" para aumentar o zoom</p>
+                <p>"Ctrl" + "0" para resetar o zoom</p>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
